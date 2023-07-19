@@ -1,6 +1,6 @@
 # Meraki AP Channel Scanner
 
-This Python script uses the Meraki API to scan for Access Points that are not configured on their assigned channels. Once found, the script will reboot the Access Points to force them to re-scan the channels and join the correct one.
+This Python script uses the Meraki API to scan for Access Points that are not using they configured/assigned channels. Once found, the script will reboot the Access Points to force them to use the correct channel.
 
 ## Requirements
 
