@@ -82,8 +82,8 @@ def check_channel(api_key, device_serial):
 
     channel_status = 0
     for ssid in channel_status_response["basicServiceSets"]:
-
-        if ssid["ssidName"] == "Kingsway" and ssid["band"] == "5 GHz" and ssid["enabled"] == True:
+        
+        if ssid["enabled"] == True and ssid["channel"] != None:
             channel_status = ssid["channel"]
 
     channel_setting = channel_setting_response["fiveGhzSettings"]["channel"]
@@ -138,7 +138,6 @@ def main():
 
         if reboot_yes.lower() == "yes":
             rebooted_successful, rebooted_failed = reboot_ap_list(api_key, mismatched, all_devices_list)
-        
-        print(f"Rebooted Successfully: {str(len(rebooted_successful)/len(mismatched)*100)}%")
+            print(f"Rebooted Successfully: {str(len(rebooted_successful)/len(mismatched)*100)}%")
 
 main()
